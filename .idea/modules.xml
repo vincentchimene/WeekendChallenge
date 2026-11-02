@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CohortHub/CohortHub.iml" filepath="$PROJECT_DIR$/CohortHub/CohortHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SafeBankTransactionSimulator/SafeBankTransactionSimulator.iml" filepath="$PROJECT_DIR$/SafeBankTransactionSimulator/SafeBankTransactionSimulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudyVault/StudyVault.iml" filepath="$PROJECT_DIR$/StudyVault/StudyVault.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TextLab/TextLab.iml" filepath="$PROJECT_DIR$/TextLab/TextLab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeekendChallenge.iml" filepath="$PROJECT_DIR$/WeekendChallenge.iml" />
+    </modules>
+  </component>
+</project>
