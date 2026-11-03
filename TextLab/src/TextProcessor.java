@@ -38,6 +38,16 @@ public class TextProcessor {
 //            return count;
     }
 
+    public static int wordCount() {
+        if (editedText.isBlank()) return 0;
 
+        Pattern pattern = Pattern.compile("[\\p{L}\\p{N}]+");
+        Matcher matcher = pattern.matcher(editedText);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
+    }
 
 }

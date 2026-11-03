@@ -38,4 +38,19 @@ public class TextProcessorTest {
         assertEquals(11, TextProcessor.characterCountWithoutWhiteSpace());
     }
 
+    @Test
+    public void testWordCount(){
+        String text = "This is a test";
+        myTextProcessor = new TextProcessor(text);
+
+        assertEquals(4, TextProcessor.wordCount());
+    }
+    @Test
+    public void testWordCount2(){
+        String text = "  This   is a test   ";
+        myTextProcessor = new TextProcessor(text);
+
+        assertEquals(4, TextProcessor.wordCount());
+    }
+
 }
