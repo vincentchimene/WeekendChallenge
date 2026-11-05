@@ -50,4 +50,29 @@ public class TextProcessor {
         return count;
     }
 
+
+    public int sentenceCount() {
+        if (editedText.isBlank()) return 0;
+
+        String[] parts = editedText.split("[.!?]+");
+        int count = 0;
+        for (String part : parts) {
+            if (part.matches(".*[\\p{L}\\p{N}].*")) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public String cleanText(){
+        String[] splitText = editedText.trim().split("\\s+");
+        StringBuilder builder = new StringBuilder();
+        for (int index = 0; index < splitText.length; index++) {
+            if (index > 0) builder.append(' ');
+            builder.append(splitText[index]);
+        }
+        editedText =  builder.toString();
+        return editedText;
+    }
+
 }
