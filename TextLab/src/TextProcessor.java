@@ -66,6 +66,10 @@ public class TextProcessor {
         return count;
     }
     public String cleanText(){
+        if (editedText.isBlank()) {
+            editedText = "";
+            return editedText;
+        }
         String[] splitText = editedText.trim().split("\\s+");
         StringBuilder builder = new StringBuilder();
         for (int index = 0; index < splitText.length; index++) {
@@ -76,6 +80,16 @@ public class TextProcessor {
         return editedText;
     }
 
-
+    public int wordFrequency() {
+        if (editedText.isBlank()) return 0;
+        Pattern pattern = Pattern.compile(
+                "\\b" + Pattern.quote(editedText) + "\\b",
+                Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE
+        );
+        Matcher m = pattern.matcher(editedText);
+        int count = 0;
+        while (m.find()) count++;
+        return count;
+    }
 
 }

@@ -79,5 +79,26 @@ public class TextProcessorTest {
 
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "'Hello Vee', 'Hello Vee'",
+            "'   Hello Vee   ', 'Hello Vee'",
+            "'Hello     Vee', 'Hello Vee'",
+            "'   Hello     Vee   ', 'Hello Vee'",
+            "'Hello my love', 'Hello my love'",
+            "'  ..,Hello my love   ', '..,Hello my love'",
+            "'Hello     my     love', 'Hello my love'",
+            "'   Hello     my     love   ', 'Hello my love'",
+            "'   Hello     Vee, my     love   ', 'Hello Vee, my love'",
+            "'Hello     Vee,    I    love    you', 'Hello Vee, I love you'",
+            "'   Hello     my    love,   how   are   you?   ', 'Hello my love, how are you?'"
+    })
+    void testThatCleanTextRemovesExcessSpaces(String text, String expected) {
+        TextProcessor textProcessor = new TextProcessor(text);
+        String actual = textProcessor.cleanText();
+
+        assertEquals(expected, actual);
+    }
+
 
     }
