@@ -3,8 +3,8 @@ import java.util.regex.Pattern;
 
 public class TextProcessor {
 
-    private static String originalText;
-    private static String editedText;
+    private final String originalText;
+    private String editedText;
 
     public TextProcessor(String text) {
         if (text == null) {
@@ -15,22 +15,24 @@ public class TextProcessor {
             this.editedText = text;
         }
     }
+    public void setEditedText(String text) {
+        this.editedText = text;
+    }
 
-    public static String getOriginal() {
+    public String getOriginal() {
         return originalText;
     }
 
-    public  static String getEdited()   {
+    public String getEdited()   {
         return editedText;
     }
 
-    public static int characterCountWithWhiteSpace() {
+    public int characterCountWithWhiteSpace() {
         return editedText.length();
     }
 
-    public static int characterCountWithoutWhiteSpace() {
-            int count = editedText.replaceAll("\\s", "").length();
-            return count;
+    public int characterCountWithoutWhiteSpace() {
+        return editedText.replaceAll("\\s", "").length();
 //            int count = 0;
 //            for (char character : editedText.toCharArray()) {
 //                if (!Character.isWhitespace(character)) count++;
@@ -38,7 +40,7 @@ public class TextProcessor {
 //            return count;
     }
 
-    public static int wordCount() {
+    public int wordCount() {
         if (editedText.isBlank()) return 0;
 
         Pattern pattern = Pattern.compile("[\\p{L}\\p{N}]+");
@@ -62,17 +64,6 @@ public class TextProcessor {
             }
         }
         return count;
-    }
-
-    public String cleanText(){
-        String[] splitText = editedText.trim().split("\\s+");
-        StringBuilder builder = new StringBuilder();
-        for (int index = 0; index < splitText.length; index++) {
-            if (index > 0) builder.append(' ');
-            builder.append(splitText[index]);
-        }
-        editedText =  builder.toString();
-        return editedText;
     }
 
 }
