@@ -80,15 +80,17 @@ public class TextProcessor {
         return editedText;
     }
 
-    public int wordFrequency() {
-        if (editedText.isBlank()) return 0;
+    public int wordFrequency(String word) {
+        if (word == null || word.isBlank()) return 0;
         Pattern pattern = Pattern.compile(
-                "\\b" + Pattern.quote(editedText) + "\\b",
+                "\\b" + Pattern.quote(word) + "\\b",
                 Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE
         );
-        Matcher m = pattern.matcher(editedText);
+        Matcher matcher = pattern.matcher(editedText);
         int count = 0;
-        while (m.find()) count++;
+        while (matcher.find()) {
+            count++;
+        }
         return count;
     }
 
