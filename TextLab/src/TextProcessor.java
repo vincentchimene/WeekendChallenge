@@ -65,5 +65,17 @@ public class TextProcessor {
         }
         return count;
     }
+    public String cleanText(){
+        String[] splitText = editedText.trim().split("\\s+");
+        StringBuilder builder = new StringBuilder();
+        for (int index = 0; index < splitText.length; index++) {
+            if (index > 0) builder.append(' ');
+            builder.append(splitText[index]);
+        }
+        editedText =  builder.toString();
+        return editedText;
+    }
+
+
 
 }
